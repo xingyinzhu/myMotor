@@ -128,8 +128,10 @@ void loop()
 						break;
 					case 6:
 						motor.leftback(SPEED);
+						break;
 					case 7:
 						motor.rightback(SPEED);
+						break;
 					default:
 						break;
 				}
