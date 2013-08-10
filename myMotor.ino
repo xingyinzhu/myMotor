@@ -48,7 +48,7 @@ void setup()
 	Serial.begin(9600);
 	motor.setParam(E1,E2,M1,M2);
 	//attachInterrupt(1,detectDistance,CHANGE);
-	//myservo.attach(servoPort);
+	myservo.attach(servoPort);
 }
 
 void readData()
@@ -76,24 +76,6 @@ void detectDistance()
 	{
 		forwardFlag = true;
 	}
-}
-
-void turnAround()
-{
-	int pos;
-	for(pos = 0; pos < 180; pos += 1)  // goes from 0 degrees to 180 degrees 
-	{                                  // in steps of 1 degree 
-		myservo.write(pos);              // tell servo to go to position in variable 'pos' 
-		delay(15);                       // waits 15ms for the servo to reach the position 
-	}
-
-	/*
-	for(pos = 180; pos>=1; pos-=1)     // goes from 180 degrees to 0 degrees 
-	{                                
-		myservo.write(pos);              // tell servo to go to position in variable 'pos' 
-		delay(15);                       // waits 15ms for the servo to reach the position 
-	} 
-	*/
 }
 
 void loop()
@@ -131,6 +113,12 @@ void loop()
 						break;
 					case 7:
 						motor.rightback(SPEED);
+						break;
+					case 8:
+						myservo.write(myservo.read()+5);
+						break;
+					case 9:
+						myservo.write(myservo.read()-5);
 						break;
 					default:
 						break;

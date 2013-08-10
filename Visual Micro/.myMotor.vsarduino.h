@@ -29,7 +29,6 @@ extern "C" void __cxa_pure_virtual() {;}
 //
 void readData();
 void detectDistance();
-void turnAround();
 //
 
 #include "D:\arduino\hardware\arduino\variants\standard\pins_arduino.h" 
